@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليلك التعليمي والعملي</title>
+    
+    <!-- روابط CSS الخارجية -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    <!-- شاشة الترحيب -->
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <div class="animated-logo">
+                <i class="fas fa-graduation-cap"></i>
+             <h1 style="color: darkviolet !important;">دليلك التعليمي والعملي</h1>
+            </div>
+            <p class="tagline">ابدأ رحلتك التعليمية والعملية الآن 🏆</p>
+            <button id="start-btn" class="start-btn">ابدأ الآن</button>
+            <p class="gift-note">هدية من المهندس أسامة العُمري - هاتف 711666863</p>
+        </div>
+    </div>
+
+    <!-- لوحة التحكم الرئيسية -->
+    <div id="dashboard" class="dashboard-container d-none">
+        <!-- شريط التنقل العلوي -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top main-navbar">
+            <div class="container-fluid">
+                <!-- شعار واسم الموقع -->
+                <a class="navbar-brand" href="#">
+                  <a href="#" class="navbar-brand d-flex align-items-center" style="color: #9400D3 !important; font-size: 1.25rem; text-decoration: none;">
+  <i class="fas fa-graduation-cap me-2" style="color: #9400D3 !important; font-size: 1.5rem;"></i>
+  دليلك التعليمي والعملي
+</a>
+                <!-- زر القائمة الجانبية -->
+                <button class="navbar-toggler" type="button" id="sidebar-toggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- أزرار الإجراءات -->
+                <div class="navbar-actions">
+                    <!-- زر البحث -->
+                    <div class="search-container">
+                        <input type="text" class="form-control search-input" id="search-input" placeholder="ابحث هنا...">
+                        <button class="btn btn-search" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- زر المفضلة -->
+                    <button id="favorites-btn" class="btn btn-outline-light">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorites-count">0</span>
+                    </button>
+                    
+                    <!-- زر تبديل الوضع الداكن/الفاتح -->
+                    <button id="theme-toggle" class="btn btn-outline-light">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- القائمة الجانبية -->
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h5>القائمة الرئيسية</h5>
+                <button id="sidebar-close" class="btn-close"></button>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#" class="sidebar-link active" data-section="dashboard">
+                        <i class="fas fa-home me-2"></i>
+                        الرئيسية
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#" class="sidebar-link" data-section="learning">
+                        <i class="fas fa-book me-2"></i>
+                        
+منصات التعلم المجانية
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link" data-section="youtube">
+                        <i class="fab fa-youtube me-2"></i>
+                        قنوات يوتيوب لتعلم مجاناً
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link" data-section="work">
+                        <i class="fas fa-briefcase me-2"></i>
+                        منصات العمل أونلاين
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link" data-section="tools">
+                        <i class="fas fa-tools me-2"></i>
+                        أدوات الإنتاج المجانية
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link" data-section="tests">
+                        <i class="fas fa-clipboard-check me-2"></i>
+                        منصات اختبارات وتقييم
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link" data-section="about">
+                        <i class="fas fa-info-circle me-2"></i>
+                        من نحن
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <!-- قسم لوحة التحكم -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="container-fluid">
+                    <div class="section-header">
+                        <h2 class="section-title">
+
+
+
+                            <i class="fas fa-tachometer-alt me-2"></i>
+                            لوحة التحكم
+                        </h2>
+                        <p class="section-subtitle">نظرة عامة على جميع أقسام دليلك التعليمي والعملي</p>
+                    </div>
+                    
+                    <div class="dashboard-stats">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3 id="learning-count">0</h3>
+                                        <p>منصة تعليم مجانية</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fab fa-youtube"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3 id="youtube-count">0</h3>
+                                        <p>قناة يوتيوب تعليمية</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3 id="work-count">0</h3>
+                                        <p>منصة عمل عن بعد</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3 id="tools-count">0</h3>
+                                        <p>أداة إنتاج مجانية</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-quick-links">
+                        <h4 class="mb-4">الوصول السريع</h4>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="#" class="quick-link-card" data-section="learning">
+                                    <div class="quick-link-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+
+
+                                    <h5>منصات التعلم المجانية</h5>
+                                    <p>اكتشف أفضل منصات التعليم المجانية مع شهادات معتمدة</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="#" class="quick-link-card" data-section="youtube">
+                                    <div class="quick-link-icon">
+                                        <i class="fab fa-youtube"></i>
+                                    </div>
+                                    <h5>قنوات يوتيوب التعليمية</h5>
+                                    <p>أفضل القنوات التعليمية المجانية على اليوتيوب</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="#" class="quick-link-card" data-section="work">
+                                    <div class="quick-link-icon">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <h5>منصات العمل عن بعد</h5>
+                                    <p>ابدأ رحلتك في العمل الحر والتوظيف عن بعد</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="#" class="quick-link-card" data-section="tools">
+                                    <div class="quick-link-icon">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <h5>أدوات الإنتاج المجانية</h5>
+                                    <p>أقوى الأدوات المجانية لتعزيز إنتاجيتك وإبداعك</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="#" class="quick-link-card" data-section="tests">
+                                    <div class="quick-link-icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <h5>منصات الاختبارات والتقييم</h5>
+                                    <p>اختبر مهاراتك واحصل على تقييم مجاني لمستواك</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="#" class="quick-link-card" data-section="about">
+                                    <div class="quick-link-icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <h5>من نحن</h5>
+                                    <p>تعرف على رؤيتنا ورسالتنا وفريق العمل</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+<!-- قسم منصات التعلم المجانية -->
+            <section id="learning-section" class="content-section">
+                <div class="container-fluid">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-book me-2"></i>
+                            منصات التعلم المجانية
+                        </h2>
+                        <p class="section-subtitle">اكتشف أفضل منصات التعليم المجانية مع شهادات معتمدة</p>
+                    </div>
+                    <div class="row" id="learning-cards">
+                        <!-- سيتم تعبئة البطاقات ديناميكيًا -->
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- قسم قنوات يوتيوب التعليمية -->
+            <section id="youtube-section" class="content-section">
+                <div class="container-fluid">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fab fa-youtube me-2"></i>
+                            قنوات يوتيوب التعليمية
+                        </h2>
+                        <p class="section-subtitle">أفضل القنوات التعليمية المجانية على اليوتيوب</p>
+                    </div>
+                    <div class="row" id="youtube-cards">
+                        <!-- سيتم تعبئة البطاقات ديناميكيًا -->
+                    </div>
+                </div>
+            </section>
+<hr>
+<hr>
+<hr>
+            <!-- قسم منصات العمل عن بعد -->
+            <section id="work-section" class="content-section">
+                <div class="container-fluid">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-briefcase me-2"></i>
+                            منصات العمل عن بعد
+                        </h2>
+                        <p class="section-subtitle">ابدأ رحلتك في العمل الحر والتوظيف عن بعد</p>
+                    </div>
+                    <div class="row" id="work-cards">
+                        <!-- سيتم تعبئة البطاقات ديناميكيًا -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم أدوات الإنتاج المجانية -->
+            <section id="tools-section" class="content-section">
+                <div class="container-fluid">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-tools me-2"></i>
+                            أدوات الإنتاج المجانية
+                        </h2>
+                        <p class="section-subtitle">أقوى الأدوات المجانية لتعزيز إنتاجيتك وإبداعك</p>
+                    </div>
+                    <div class="row" id="tools-cards">
+                        <!-- سيتم تعبئة البطاقات ديناميكيًا -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم منصات الاختبارات والتقييم -->
+            <section id="tests-section" class="content-section">
+                <div class="container-fluid">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-clipboard-check me-2"></i>
+                            منصات الاختبارات والتقييم
+                        </h2>
+                        <p class="section-subtitle">اختبر مهاراتك واحصل على تقييم مجاني لمستواك</p>
+                    </div>
+                    <div class="row" id="tests-cards">
+                        <!-- سيتم تعبئة البطاقات ديناميكيًا -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم من نحن -->
+            <section id="about-section" class="content-section">
+                <div class="container-fluid">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-info-circle me-2"></i>
+                            من نحن
+                        </h2>
+                        <p class="section-subtitle">تعرف على رؤيتنا ورسالتنا وفريق العمل</p>
+                    </div>
+                    
+                    <div class="about-content">
+                        <!-- محتوى قسم من نحن -->
+                        <div class="about-intro">
+                            <h3>🌍 من نحن — موقع دليلك التعليمي والعملي</h3>
+                            
+                            <div class="about-card">
+                                <h4>✨ مقدمة تعريفية</h4>
+                                <p>مرحبًا بك في دليلك — المنصّة التي وُلدت من فكرة بسيطة، لكنها كبيرة في أثرها: أن نُسهِّل الوصول إلى المعرفة، المهارة، والعمل… في مكان واحد، وبدون أي حواجز.</p>
+                                <p>نحن لسنا مجرد موقع يجمع روابط تعليمية، بل نظام ذكي تفاعلي يربطك بكل ما تحتاجه لتتعلم، تطوّر مهاراتك، وتبدأ طريقك المهني — بثقة وسلاسة.</p>
+                            </div>
+                            
+                            <div class="about-card">
+                                <h4>🎯 رسالتنا</h4>
+                                <p>أن نجعل المعرفة والفرص متاحة للجميع، بغضّ النظر عن خلفيتك أو مكانك.</p>
+                            </div>
+                            
+                            <div class="about-card">
+                                <h4>🌱 رؤيتنا</h4>
+                                <p>أن نصبح الدليل العربي الأول الذي يجمع التعليم، الإبداع، والعمل، في منصة ذكية وسهلة الاستخدام.</p>
+                            </div>
+                            
+                            <div class="about-card">
+                                <h4>💡 ما الذي يجعل دليلك مختلفًا؟</h4>
+                                <div class="features-grid">
+                                    <div class="feature-item">
+                                        <i class="fas fa-palette"></i>
+                                        <h5>تصميم زجاجي متجاوب</h5>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-hand-pointer"></i>
+                                        <h5>محتوى مختار يدويًا بعناية</h5>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <h5>لوحة تحكم تفاعلية</h5>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-search"></i>
+                                        <h5>بحث فوري دائم الظهور</h5>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-heart"></i>
+                                        <h5>مفضلة شخصية محلية</h5>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fab fa-youtube"></i>
+                                        <h5>متصفح قنوات يوتيوب مدمج</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="about-card">
+                                <h4>🧭 الأقسام الأساسية</h4>
+                                <ul class="sections-list">
+                                    <li><i class="fas fa-book me-2"></i> منصات التعلم المجانية</li>
+                                    <li><i class="fas fa-robot me-2"></i> أدوات الذكاء الاصطناعي المجانية</li>
+                                    <li><i class="fas fa-clipboard-check me-2"></i> منصات الاختبارات والتقييم</li>
+                                    <li><i class="fas fa-briefcase me-2"></i> العمل أونلاين</li>
+                                    <li><i class="fab fa-youtube me-2"></i> قنوات يوتيوب التعليمية</li>
+                                    <li><i class="fas fa-blog me-2"></i> مدونة دليلك</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="about-card">
+                                <h4>⚙️ التقنية وراء الكواليس</h4>
+                                <p>يعتمد الموقع على:</p>
+                                <ul class="tech-list">
+                                    <li>HTML5 + CSS3 + JavaScript</li>
+                                    <li>LocalStorage</li>
+                                    <li>YouTube API</li>
+                                    <li>نظام SPA (Single Page Application)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="about-card">
+                                <h4>👨‍💻 عن مؤسس المشروع</h4>
+                                <div class="founder-info">
+                                    <div class="founder-avatar">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="founder-details">
+                                        <h5>المهندس أسامة محمد علي سعيد العمري</h5>
+                                        <p>محلل ومخطط مشاريع، مطور ويب.</p>
+                                        <p>رؤيته: أن يكون التعليم والعمل والإبداع متاحًا لكل شاب عربي بنقرة واحدة.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="about-card">
+                                                                       <a href="https://alomriosamah82-dotcom.github.io/My-blog/" 
+                                           class="btn btn-primary btn-lg w-100 mt-3" 
+                                           target="_blank">
+                                            <i class="fas fa-external-link-alt me-2"></i>
+                                            زيارة المدونة الشخصية
+                                        </a>          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- نافذة التفاصيل المنبثقة -->
+    <div class="modal fade" id="details-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">تفاصيل المنصة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modal-content">
+                        <!-- سيتم تعبئة المحتوى ديناميكيًا -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    <a id="platform-link" href="#" target="_blank" class="btn btn-primary">تصفح المنصة</a>
+                    <button id="add-to-favorites" class="btn btn-outline-primary">
+                        <i class="far fa-heart"></i> إضافة إلى المفضلة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة المفضلة -->
+    <div class="modal fade" id="favorites-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">قائمة المفضلة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="favorites-list">
+                        <!-- سيتم تعبئة قائمة المفضلة ديناميكيًا -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- منطقة الإشعارات -->
+    <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3">
+        <!-- سيتم إضافة الإشعارات ديناميكيًا -->
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>جميع الحقوق محفوظة © دليلك التعليمي والعملي</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>المهندس أسامة العُمري - هاتف 711666863</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- في نهاية body في index.html --><!-- مكتبة Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- سكربتات المشروع -->
+<script src="debug.js"></script>
+<script src="main.js"></script>
+<script src="dashboard.js"></script>
+<script src="learning-data.js"></script>
+<script src="youtube-data.js"></script>
+<script src="work-data.js"></script>
+<script src="tools-data.js"></script>
+<script src="tests-data.js"></script>
+
+</body>
+
+</html>
